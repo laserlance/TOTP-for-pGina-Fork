@@ -1,0 +1,533 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Abstractions</name>
+    </assembly>
+    <members>
+        <member name="M:Abstractions.Settings.DynamicSettings.SetDefault(System.String,System.Object)">
+            <summary>
+            Sets the default value for a setting.  Checks to see if the setting
+            is already defined in the registry.  If so, the method does nothing.
+            Otherwise the setting is initialized to value.
+            </summary>
+            <param name="name">The name of the setting</param>
+            <param name="value">The default value for the setting</param>
+        </member>
+        <member name="M:Abstractions.Settings.DynamicSettings.GetSettings(System.String[])">
+            <summary>
+            Get a dictionary containing all values of the pgina registry
+            key.  The Dictionary key is the sub-key name, the value is a pGinaDynamicSettings object
+            corresponding to the sub-key.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_GENERIC">
+            <summary>
+            The caller is requesting that the credential provider return the user name and password in plain text.
+            This value cannot be combined with SECURE_PROMPT.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_CHECKBOX">
+            <summary>
+            The Save check box is displayed in the dialog box.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_AUTHPACKAGE_ONLY">
+            <summary>
+            Only credential providers that support the authentication package specified by the authPackage parameter should be enumerated.
+            This value cannot be combined with CREDUIWIN_IN_CRED_ONLY.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_IN_CRED_ONLY">
+            <summary>
+            Only the credentials specified by the InAuthBuffer parameter for the authentication package specified by the authPackage parameter should be enumerated.
+            If this flag is set, and the InAuthBuffer parameter is NULL, the function fails.
+            This value cannot be combined with CREDUIWIN_AUTHPACKAGE_ONLY.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_ENUMERATE_ADMINS">
+            <summary>
+            Credential providers should enumerate only administrators. This value is intended for User Account Control (UAC) purposes only. We recommend that external callers not set this flag.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_ENUMERATE_CURRENT_USER">
+            <summary>
+            Only the incoming credentials for the authentication package specified by the authPackage parameter should be enumerated.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_SECURE_PROMPT">
+            <summary>
+            The credential dialog box should be displayed on the secure desktop. This value cannot be combined with CREDUIWIN_GENERIC.
+            Windows Vista: This value is not supported until Windows Vista with SP1.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.PromptForWindowsCredentialsFlags.CREDUIWIN_PACK_32_WOW">
+            <summary>
+            The credential provider should align the credential BLOB pointed to by the refOutAuthBuffer parameter to a 32-bit boundary, even if the provider is running on a 64-bit system.
+            </summary>
+        </member>
+        <member name="T:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType">
+            <summary>
+            Used with LogonUser
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType.LOGON32_LOGON_INTERACTIVE">
+            <summary>
+            This logon type is intended for users who will be interactively using the computer, such as a user being logged on
+            by a terminal server, remote shell, or similar process.
+            This logon type has the additional expense of caching logon information for disconnected operations;
+            therefore, it is inappropriate for some client/server applications,
+            such as a mail server.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType.LOGON32_LOGON_NETWORK">
+            <summary>
+            This logon type is intended for high performance servers to authenticate plaintext passwords.
+            The LogonUser function does not cache credentials for this logon type.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType.LOGON32_LOGON_BATCH">
+            <summary>
+            This logon type is intended for batch servers, where processes may be executing on behalf of a user without
+            their direct intervention. This type is also for higher performance servers that process many plaintext
+            authentication attempts at a time, such as mail or Web servers.
+            The LogonUser function does not cache credentials for this logon type.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType.LOGON32_LOGON_SERVICE">
+            <summary>
+            Indicates a service-type logon. The account provided must have the service privilege enabled.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType.LOGON32_LOGON_UNLOCK">
+            <summary>
+            This logon type is for GINA DLLs that log on users who will be interactively using the computer.
+            This logon type can generate a unique audit record that shows when the workstation was unlocked.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType.LOGON32_LOGON_NETWORK_CLEARTEXT">
+            <summary>
+            This logon type preserves the name and password in the authentication package, which allows the server to make
+            connections to other network servers while impersonating the client. A server can accept plaintext credentials
+            from a client, call LogonUser, verify that the user can access the system across the network, and still
+            communicate with other servers.
+            NOTE: Windows NT:  This value is not supported.
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonType.LOGON32_LOGON_NEW_CREDENTIALS">
+            <summary>
+            This logon type allows the caller to clone its current token and specify new credentials for outbound connections.
+            The new logon session has the same local identifier but uses different credentials for other network connections.
+            NOTE: This logon type is supported only by the LOGON32_PROVIDER_WINNT50 logon provider.
+            NOTE: Windows NT:  This value is not supported.
+            </summary>
+        </member>
+        <member name="T:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonProvider">
+            <summary>
+            Used with LogonUser
+            </summary>
+        </member>
+        <member name="F:Abstractions.WindowsApi.pInvokes.SafeNativeMethods.LogonProvider.LOGON32_PROVIDER_DEFAULT">
+            <summary>
+            Use the standard logon provider for the system.
+            The default security provider is negotiate, unless you pass NULL for the domain name and the user name
+            is not in UPN format. In this case, the default provider is NTLM.
+            NOTE: Windows 2000/NT:   The default security provider is NTLM.
+            </summary>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.CProcess(System.String,System.String)">
+            <summary>
+            Run app as system
+            </summary>
+            <param name="Application"></param>
+            <param name="CommandLine"></param>
+            <returns>return code of the app or uint.MaxValue if exception</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.MapNetworkDrive(System.String,System.String,System.String,System.String)">
+            <summary>
+            Map a network drive.
+            </summary>
+            <param name="unc">The full UNC path.</param>
+            <param name="drive">The drive letter (e.g. "Z:", "X:", etc.)</param>
+            <param name="user">The username, null if you want the current user.</param>
+            <param name="password">The password, null to use the default password.</param>
+            <returns>The error code of the WNetAddConnection2 function.</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.ValidateCredentials(System.String,System.String)">
+            <summary>
+            Attempts to validate the user's credentials for a local account using
+            a pInvoke to LogonUser.
+            </summary>
+            <param name="username">The username</param>
+            <param name="password">The password</param>
+            <returns>True if the account credentials are valid</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.ValidateCredentials(System.String,System.String,System.String)">
+            <summary>
+            Attempts to validate the user's credentials using
+            a pInvoke to LogonUser.
+            </summary>
+            <param name="username">The username</param>
+            <param name="domain">The domain</param>
+            <param name="password">The password</param>
+            <returns>True if the account credentials are valid</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.ValidateUser(System.String,System.String,System.String)">
+            <summary>
+            Attempts to validate the user's credentials using
+            a pInvoke to LogonUser but ignores password change response.
+            </summary>
+            <param name="username">The username</param>
+            <param name="domain">The domain</param>
+            <param name="password">The password</param>
+            <returns>True if the account credentials are valid</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetSessionContext(System.Int32)">
+            <summary>
+            return username based on context in which a program is running.
+            a program running as administrator will add administrator to the list
+            session ID -1 retuns all sessions instead of a specific one
+            </summary>
+            <param name="sessionID">the seesion ID or -1 for all sessions</param>
+            <returns>is a lower username like administrator</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetSessionContextParser(System.Int32,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{System.String}})">
+            <summary>
+            return username based on context in which a program is running.
+            a program running as administrator will add administrator to the list
+            session ID -1 retuns all sessions instead of a specific one
+            </summary>
+            <param name="sessionID">the seesion ID or -1 for all sessions</param>
+            <param name="contextALL">a GetSessionContext() Directory</param>
+            <returns>is a lower username like administrator</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetSessionContext">
+            <summary>
+            returns a Dictionary of SessionID Keys and a List of usernames based on context in which a program is running.
+            a program running as administrator will add administrator to the list
+            </summary>
+            <returns>is a lower username like administrator</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetUserToken(System.String,System.String,System.String)">
+            <summary>
+            Create a handle to the user token
+            make sure to close the handle!!!
+            </summary>
+            <param name="username"></param>
+            <param name="domain"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.CreateUserProfileDir(System.IntPtr,System.String)">
+            <summary>
+            calls API CreateProfile
+            an empty string on error
+            a null string on already exists
+            a string on success
+            </summary>
+            <param name="hToken"></param>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetOrSetUserProfileDir(System.String,System.String,System.String)">
+            <summary>
+            get or create user profile directory
+            only if the ProfileList regkey is not of SID.bak (Abstractions.User.FixProfileList)
+            an empty or null string means error
+            </summary>
+            <param name="username"></param>
+            <param name="domain"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetUserProfileDir(System.IntPtr)">
+            <summary>
+            returns userprofile based on GetUserProfileDirectory
+            only if the ProfileList regkey is not of SID.bak (Abstractions.User.FixProfileList)
+            empty string means error
+            </summary>
+            <param name="hToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetUserProfilePath(System.IntPtr)">
+            <summary>
+            returns userprofile based on SHGetFolderPath
+            only if the profile realy exists and the ProfileList regkey is not of SID.bak (Abstractions.User.FixProfileList)
+            empty string means error
+            </summary>
+            <param name="hToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.VersionsInfo">
+            <summary>
+            get the real windows version
+            http://www.codeproject.com/Articles/678606/Part-Overcoming-Windows-s-deprecation-of-GetVe
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.UserExists(System.String,System.String)">
+            <summary>
+            return true if a local user exists
+            </summary>
+            <param name="username"></param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.UserExists(System.String)">
+            <summary>
+            return true if a local user exists
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.UserADD(System.String,System.String,System.String)">
+            <summary>
+            add user to the local system
+            based on http://social.msdn.microsoft.com/forums/en-us/csharpgeneral/thread/B70B79D9-971F-4D6F-8462-97FC126DE0AD
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="comment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.UserMod(System.String,Abstractions.WindowsApi.pInvokes.structenums.USER_INFO_4)">
+            <summary>
+            modify local user settings based on a USER_INFO_4 struct
+            based on http://social.msdn.microsoft.com/forums/en-us/csharpgeneral/thread/B70B79D9-971F-4D6F-8462-97FC126DE0AD
+            </summary>
+            <param name="username"></param>
+            <param name="userInfo4"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.UserGet(System.String,Abstractions.WindowsApi.pInvokes.structenums.USER_INFO_4@)">
+            <summary>
+            returns local user settings as a ref of an USER_INFO_4 struct
+            based on http://social.msdn.microsoft.com/forums/en-us/csharpgeneral/thread/B70B79D9-971F-4D6F-8462-97FC126DE0AD
+            </summary>
+            <param name="username"></param>
+            <param name="userinfo4">a ref of an USER_INFO_4 struct</param>
+            <returns>bool true 4 success</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.UserGet(System.String,System.String,Abstractions.WindowsApi.pInvokes.structenums.USER_INFO_4@)">
+            <summary>
+            returns local user settings as a ref of an USER_INFO_4 struct
+            based on http://social.msdn.microsoft.com/forums/en-us/csharpgeneral/thread/B70B79D9-971F-4D6F-8462-97FC126DE0AD
+            </summary>
+            <param name="username"></param>
+            <param name="domain"></param>
+            <param name="userinfo4">a ref of an USER_INFO_4 struct</param>
+            <returns>bool true 4 success</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.UserDel(System.String)">
+            <summary>
+            delete a local user
+            based on http://social.msdn.microsoft.com/forums/en-us/csharpgeneral/thread/B70B79D9-971F-4D6F-8462-97FC126DE0AD
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.SendMessageToUser(System.Int32,System.String,System.String)">
+            <summary>
+            send a messagebox to a session
+            </summary>
+            <param name="sessionID"></param>
+            <param name="title"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.MapNetworkDrive(System.String,System.String,System.String)">
+            <summary>
+            connect to a remote computer
+            based on http://social.msdn.microsoft.com/Forums/et-EE/netfxbcl/thread/58159e0e-aa45-4d46-a128-596c3d23ff5c
+            </summary>
+            <param name="remoteUNC"></param>
+            <param name="username">better use the domainname\username format</param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.MapNetworkDrive(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            connect to a remote computer
+            based on http://social.msdn.microsoft.com/Forums/et-EE/netfxbcl/thread/58159e0e-aa45-4d46-a128-596c3d23ff5c
+            </summary>
+            <param name="remoteUNC"></param>
+            <param name="username">better use the domainname\username format</param>
+            <param name="password"></param>
+            <param name="promptUser">true to for a promt, if needed</param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.DisconnectNetworkDrive(System.String)">
+            <summary>
+            disconnecting an UNC share
+            </summary>
+            <param name="remoteUNC"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetFreeShareSpace(System.String)">
+            <summary>
+            Retrieves information about the amount of space that is available on a disk volume, which is the total amount of space, the total amount of free space, and the total amount of free space available to the user that is associated with the calling thread.
+            based on http://msdn.microsoft.com/en-us/library/windows/desktop/aa364937(v=vs.85).aspx
+            </summary>
+            <param name="share"></param>
+            <returns>An array[freeBytesForUser,totalBytes,freeBytes]. On error all values are -1</returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetRegistryLocation(Abstractions.WindowsApi.pInvokes.structenums.RegistryLocation)">
+            <summary>
+            get RegistryKey from structenums.RegistryLocation
+            </summary>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.RegistryLoad(Abstractions.WindowsApi.pInvokes.structenums.RegistryLocation,System.String,System.String)">
+            <summary>
+            load a regfile at hklm or hku
+            </summary>
+            <param name="where">hklm or hku</param>
+            <param name="name">The name of the key to be created under hKey. This subkey is where the registration information from the file will be loaded</param>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.RegistryUnLoad(Abstractions.WindowsApi.pInvokes.structenums.RegistryLocation,System.String)">
+            <summary>
+            unload regfile from regkey
+            </summary>
+            <param name="where">hklm or hku</param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.DomainMember(System.String)">
+            <summary>
+            query if the domain is part of a domain tree in which the local computer is a member of
+            </summary>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetMachineDomainMembershipEX">
+            <summary>
+            get local machine domain membership as DNS name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.GetMachineDomainMembership">
+            <summary>
+            get local machine domain membership as NETBIOS name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.LastError(System.Int32)">
+            <summary>
+            returns GetLastWin32Error as string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.WindowsApi.pInvokes.LastError">
+            <summary>
+            returns GetLastWin32Error as string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.Networking.GetNetworkTime(System.String[])">
+            <summary>
+            get UTC ntp time
+            based on http://stackoverflow.com/questions/1193955/how-to-query-an-ntp-server-using-c
+            </summary>
+            <param name="FQDN">server address</param>
+            <returns>DateTime, on error DateTime.MinValue</returns>
+        </member>
+        <member name="M:Abstractions.Windows.Networking.email(System.String[],System.String[],System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            does send a mail including the last 60 system-Event and application-Event lines
+            plus the last 175 pgina logfile lines
+            </summary>
+            <param name="mailAddress"></param>
+            <param name="smtpAddress"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="subject"></param>
+            <param name="body"></param>
+            <param name="ssl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.Security.RegSec(Abstractions.WindowsApi.pInvokes.structenums.RegistryLocation,System.String,System.String)">
+            <summary>
+            apply registry security settings to user profiles
+            </summary>
+            <param name="where"></param>
+            <param name="keyname"></param>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.Security.SetRecDirAttrib(System.IO.DirectoryInfo,System.IO.FileAttributes)">
+            <summary>
+            apply recursive attribute to directories and files
+            </summary>
+            <param name="dir"></param>
+            <param name="attrib"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.Security.RemoveAccRuleFromUnknownUser(System.String)">
+            <summary>
+            remove users who are unknown to the system from the directory acl
+            </summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.User.GetProfileDir(System.Security.Principal.SecurityIdentifier)">
+            <summary>
+            returns profiledir based on regkey
+            </summary>
+            <param name="sid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.User.IsProfileTemp(System.String)">
+            <summary>
+            return true if profile is temp. uses ProfileList State regkey
+            </summary>
+            <param name="sid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.User.FixProfileList(System.String)">
+            <summary>
+            if a user receives a temp profile of whatever reason
+            MS is renaming the SID key under ProfileList to SID.bak
+            if so winapi calls will fail and not returning anything
+            </summary>
+            <param name="userSID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.User.DelProfileList(System.String)">
+            <summary>
+            Delete ProfileList regkeys
+            </summary>
+            <param name="userSID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.User.GetProfileDir(System.String,System.String,System.Security.Principal.SecurityIdentifier)">
+            <summary>
+            returns user profile direrctory
+            empty string on error
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="sid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Abstractions.Windows.User.SetQuota(Abstractions.WindowsApi.pInvokes.structenums.RegistryLocation,System.String,System.UInt32)">
+            <summary>
+            sets user profile quota
+            </summary>
+            <param name="where">ROOTKEY hklm or hku</param>
+            <param name="name">SubKey name</param>
+            <param name="quota">if 0 means the profile quota GPO it will be deleted</param>
+            <returns>false on error</returns>
+        </member>
+        <member name="M:Abstractions.Windows.User.QueryQuota(Abstractions.WindowsApi.pInvokes.structenums.RegistryLocation,System.String)">
+            <summary>
+            query for already set user profile quota
+            </summary>
+            <param name="where"></param>
+            <param name="name"></param>
+            <returns>true on already set</returns>
+        </member>
+    </members>
+</doc>
