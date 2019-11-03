@@ -1,0 +1,8 @@
+D:\Users\Lance\Documents\git\TOTP Login\bin\pGina.Plugin.Totpauth.dll
+D:\Users\Lance\Documents\git\TOTP Login\bin\pGina.Plugin.Totpauth.pdb
+D:\Users\Lance\Documents\git\TOTP Login\Totpauth\Totpauth\obj\Release\pGina.Plugin.Totpauth.Configuration.resources
+D:\Users\Lance\Documents\git\TOTP Login\Totpauth\Totpauth\obj\Release\Totpauth.csproj.GenerateResource.cache
+D:\Users\Lance\Documents\git\TOTP Login\Totpauth\Totpauth\obj\Release\Totpauth.csproj.CoreCompileInputs.cache
+D:\Users\Lance\Documents\git\TOTP Login\Totpauth\Totpauth\obj\Release\Totpauth.csproj.CopyComplete
+D:\Users\Lance\Documents\git\TOTP Login\Totpauth\Totpauth\obj\Release\pGina.Plugin.Totpauth.dll
+D:\Users\Lance\Documents\git\TOTP Login\Totpauth\Totpauth\obj\Release\pGina.Plugin.Totpauth.pdb
